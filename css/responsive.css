@@ -1,0 +1,58 @@
+/*-------------------------------------------*/
+/*--- B R E A K P O I N T   H E L P E R S ---*/
+/*-------------------------------------------*/
+
+/*--- helpers - all off by default ---*/
+.phone-only, .tablet-only, .touch-only, .sd-only, .hd-only, .uhd-only,
+.to-sd, .to-hd, .from-tablet, .from-sd, .from-hd {
+    display: none !important;
+}
+
+/*--- phone (+touch) ---*/
+@media (max-width: 577px) {
+    html { font-size: calc((1rem / 16) * 1); }
+
+    .phone-only, .touch-only, .to-sd, .to-hd { display: unset !important; }
+}
+
+/*--- tablet (+touch) ---*/
+@media (min-width: 578px) and (max-width: 1279px) {
+    html { font-size: calc((1rem / 16) * 0.8); }
+
+    .tablet-only, .touch-only, .to-sd, .to-hd { display: unset !important; }
+}
+
+/*--- sd ---*/
+@media (min-width: 1280px) and (max-width: 1439px) {
+    html { font-size: calc((1rem / 16) * 0.9); }
+
+    .sd-only, .from-tablet, .to-sd, .to-hd { display: unset !important; }
+}
+
+/*--- hd ---*/
+@media (min-width: 1440px) and (max-width: 1919px) {
+    html { font-size: calc((1rem / 16) * 1); }
+
+    .hd-only, .from-sd, .to-hd { display: unset !important; }
+}
+
+/*--- uhd ---*/
+@media (min-width: 1920px) {
+    html { font-size: calc((1rem / 16) * 1.1); }
+
+    .uhd-only, .from-hd { display: unset !important; }
+
+}
+
+
+/*-----------------------------------------*/
+/*--- R E S P O N S I V E   D E S I G N ---*/
+/*-----------------------------------------*/
+
+/*--- phone ---*/
+@media (max-width: 577px) {
+}
+
+/*--- tablet ---*/
+@media (min-width: 578px) {
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог рослин - Special Plants</title>
+    <meta name="description" content="Повний каталог рідкісних та екзотичних рослин. Кімнатні, садові рослини та аксесуари.">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/flickity.css">
+    <link rel="stylesheet" href="css/flickity-fade.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Header -->
+    @@include('partials/header.html')
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-header__title">Каталог рослин</h1>
+                <nav class="breadcrumbs">
+                    <a href="/" class="breadcrumbs__link">Головна</a>
+                    <span class="breadcrumbs__separator">/</span>
+                    <span class="breadcrumbs__current">Каталог</span>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Filters -->
+        <section class="filters">
+            <div class="container">
+                <div class="filters__content">
+                    <div class="filter-group">
+                        <label class="filter__label">Категорія:</label>
+                        <select class="filter__select">
+                            <option value="">Всі категорії</option>
+                            <option value="indoor">Кімнатні рослини</option>
+                            <option value="outdoor">Садові рослини</option>
+                            <option value="rare">Рідкісні види</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label class="filter__label">Ціна:</label>
+                        <select class="filter__select">
+                            <option value="">Будь-яка ціна</option>
+                            <option value="0-500">До 500 грн</option>
+                            <option value="500-1000">500-1000 грн</option>
+                            <option value="1000+">Від 1000 грн</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label class="filter__label">Складність догляду:</label>
+                        <select class="filter__select">
+                            <option value="">Будь-яка</option>
+                            <option value="easy">Легка</option>
+                            <option value="medium">Середня</option>
+                            <option value="hard">Складна</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Grid -->
+        <section class="products">
+            <div class="container">
+                <div class="products__grid">
+                    <!-- Product cards will be added here -->
+                    <div class="product-card">
+                        <div class="product-card__image">
+                            <img src="images/plants/plant-1.jpg" alt="Назва рослини" class="product-card__img">
+                        </div>
+                        <div class="product-card__content">
+                            <h3 class="product-card__title">Назва рослини</h3>
+                            <p class="product-card__description">Короткий опис рослини</p>
+                            <div class="product-card__price">1,200 грн</div>
+                            <button class="button button--primary product-card__button">Додати в кошик</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    @@include('partials/footer.html')
+
+    <!-- JavaScript -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/flickity.pkgd.js"></script>
+    <script src="js/flickity-fade.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
