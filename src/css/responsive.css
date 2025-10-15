@@ -183,6 +183,12 @@ html { font-size: calc((1rem / 16) * 1); }
     .header-menu.active {
         padding-top: 170rem;
     }
+    .hero-slider {
+        height: 133rem;
+    }
+    .hero-slider .flickity-page-dots {
+        bottom: 11rem;
+    }
  
   
 }
