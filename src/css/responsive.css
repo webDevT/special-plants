@@ -169,7 +169,24 @@ html { font-size: calc((1rem / 16) * 1); }
     }
     
 }
-
+@media (max-width: 768px) {
+    .leaf-cutout.-hero {
+        --leaf-width: 100%;
+        --leaf-height: 300rem;
+    }
+    .leaf-cutout.-banner {
+        --leaf-width: 100%;
+        --leaf-height: 250rem;
+    }
+    .leaf-cutout.-card {
+        --leaf-width: 100%;
+        --leaf-height: 200rem;
+    }
+    .leaf-cutout.-square {
+        --leaf-width: 100%;
+        --leaf-height: 250rem;
+    }
+}
 @media (max-width: 577px) {
     /*-------------------*/
     /*--- H E A D E R ---*/
@@ -189,6 +206,29 @@ html { font-size: calc((1rem / 16) * 1); }
     .hero-slider .flickity-page-dots {
         bottom: 11rem;
     }
+    .footer-content {
+        flex-direction: column;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        padding-top: 33rem;
+    }
+    .footer-logo img {
+        width: 100%;
+    }
+    .footer-social {
+        margin-top: 50rem;
+    }
+    .footer-content {
+        padding-bottom: 25rem;
+    }
+    .copyright {
+        margin-bottom: 13rem;
+    }
+    .footer {
+        padding-bottom: 33rem;
+    }
+  
  
   
 }

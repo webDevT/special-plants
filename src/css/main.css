@@ -27,7 +27,7 @@
     --green: 51, 101, 16;          /* #336510 - Dark green */
     --grey-light: 250, 250, 250;    /* #FAFAFA - Light gray */
     --grey-light-2: 217, 217, 217;    /* #D9D9D9 - Light gray 2 */
-
+    --grey-light-3: 245, 245, 245;    /* #F5F5F5 - Light gray 3 */
     /*--- fonts ---*/
     --font-family: 'Montserrat', sans-serif;
 
@@ -38,12 +38,36 @@
     --s: 16rem;     /* Small - body text, buttons */
     --xs: 14rem;    /* Extra Small - small text, captions */
 
-    -raduis-280: 280rem;
-    -raduis-200: 200rem;
-    -raduis-180: 180rem;
-    -raduis-140: 140rem;
-    -raduis-50: 50rem;
-    -raduis-30: 30rem;
+    --radius-280: 280rem;
+    --radius-200: 200rem;
+    --radius-180: 180rem;
+    --radius-140: 140rem;
+    --radius-50: 50rem;
+    --radius-30: 30rem;
+
+    /* Leaf cutout variants - size + radius combined */
+    --leaf-hero-width: 580rem;
+    --leaf-hero-height: 430rem;
+
+    --leaf-square-width: 500rem;
+    --leaf-square-height: 500rem;
+    
+    --leaf-banner-width: 500rem;
+    --leaf-banner-height: 410rem;
+    
+    --leaf-card-width: 480rem;
+    --leaf-card-height: 400rem;
+    
+    --leaf-thumb-width: 250rem;
+    --leaf-thumb-height: 215rem;
+    
+    --leaf-icon-width: 300rem;
+    --leaf-icon-height: 320rem;
+
+    /* After element positioning */
+    --leaf-after-left-right: -17rem; /* For -right direction */
+    --leaf-after-left-left: 17rem;   /* For -left direction */
+    --leaf-after-top: 17rem;
 
 
 }
@@ -56,7 +80,7 @@
 * {
     margin: 0;
     padding: 0;
-    line-height: 1;
+    line-height: 1.7;
     box-sizing: border-box;
 }
 
@@ -71,6 +95,7 @@ body {
     font-family: var(--font-family);
     font-size: var(--s);
     font-weight: 400;
+    line-height: 1.5;
     color: rgb(var(--grey-dark));
 }
 
@@ -82,10 +107,101 @@ body {
 
 
 
+
 /*---------------------*/
 /*--- H E L P E R S ---*/
 /*---------------------*/
+.leaf-cutout {
+    display: block;
+    position: relative;
+    --leaf-width: var(--leaf-card-width); /* Default width */
+    --leaf-height: var(--leaf-card-height); /* Default height */
+    --leaf-radius: var(--leaf-card-radius); /* Default radius */
+    border-radius: 0 var(--leaf-radius) 0 var(--leaf-radius);
+    overflow: visible; 
+    width: var(--leaf-width);
+    height: var(--leaf-height);
+}
 
+.leaf-cutout.-hero {
+    --leaf-width: var(--leaf-hero-width);
+    --leaf-height: var(--leaf-hero-height);
+    --leaf-radius: var(--radius-280);
+}
+.leaf-cutout.-square {
+    --leaf-width: var(--leaf-square-width);
+    --leaf-height: var(--leaf-square-height);
+    --leaf-radius: var(--radius-200);
+}
+.leaf-cutout.-banner {
+    --leaf-width: var(--leaf-banner-width);
+    --leaf-height: var(--leaf-banner-height);
+    --leaf-radius: var(--radius-180);
+}
+.leaf-cutout.-card {
+    --leaf-width: var(--leaf-card-width);
+    --leaf-height: var(--leaf-card-height);
+    --leaf-radius: var(--radius-140);
+}
+.leaf-cutout.-thumb {
+    --leaf-width: var(--leaf-thumb-width);
+    --leaf-height: var(--leaf-thumb-height);
+    --leaf-radius: var(--radius-50);
+}
+.leaf-cutout.-icon {
+    --leaf-width: var(--leaf-icon-width);
+    --leaf-height: var(--leaf-icon-height);
+    --leaf-radius: var(--radius-140);
+}
+
+
+
+
+.leaf-cutout img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Зображення заповнює контейнер */
+    display: block;
+    border-radius: inherit; /* Наслідує радіус від батьківського елемента */
+}
+
+/* Direction modifiers */
+.leaf-cutout.-left {
+    border-radius: var(--leaf-radius) 0 var(--leaf-radius) 0;
+}
+.leaf-cutout.-left:after {
+    left: 17rem;
+}
+
+.leaf-cutout.-right {
+    border-radius: 0 var(--leaf-radius) 0 var(--leaf-radius);
+}
+.leaf-cutout.-right:after {
+    left: -17rem;
+}
+
+.leaf-cutout.-thumb:after {
+    left: 5rem;
+    top: 5rem;
+}
+
+.leaf-cutout.-card:after {
+    left: 10rem;
+    top: 10rem;
+}
+
+.leaf-cutout:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgb(var(--teal));
+    border-radius: inherit; /* Наслідує радіус від батьківського елемента */
+    top: 17rem;
+    left: -17rem; /* Базове значення, перевизначається в напрямках */
+    z-index: 1;
+    pointer-events: none; /* Не блокує кліки */
+}
 
 
 
@@ -103,6 +219,7 @@ h2 {
     font-size: var(--l);
     font-weight: 600;
     color: rgb(var(--grey));
+    margin-bottom: 20rem;
 }
 
 h3 {
@@ -117,7 +234,9 @@ h4 {
     font-weight: 700;
 }
 
-p, li, ol { font-weight: 400; }
+p, li, ol {
+    font-weight: 400;
+    }
 
 a {
     color: rgb(var(--grey));
@@ -237,6 +356,9 @@ button {
     transform: translateY(-50%);
     cursor: pointer;
 }
+.search-button:hover img {
+    opacity: 0.8;
+}
 .search-wrapper {
     position: relative;
     transition: all 0.3s ease;
@@ -270,6 +392,9 @@ button {
     display: block;
     margin-left: 15rem;
     margin-right: 15rem;
+}
+.header-icon:hover img {
+    opacity: 0.8;
 }
 .header .button {
     margin-left: 15rem;
@@ -341,4 +466,112 @@ button {
 
 .hero-slider .flickity-page-dots .dot.is-selected {
     background: rgb(var(--white));
+}
+
+/*-----------------------*/
+/*--- FOOTER ---*/
+/*-----------------------*/
+
+.footer {
+    background: rgba(var(--grey-light-3));
+    padding-top: 32rem;
+    padding-bottom: 20rem;
+}
+.footer-logo img {
+    width: 250rem;
+}
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15rem;
+    border-bottom: 1px solid rgb(var(--grey-light-2));
+}
+.footer-social {
+    display: flex;
+    align-items: center;
+}
+.footer-social a {
+    display: block;
+    margin-left: 17rem;
+}
+.footer-social img {
+    height: 21rem;
+}
+.footer-social a:hover {
+    opacity: 0.8;
+}
+.footer-social-title {
+    color: rgb(var(--grey-dark));
+}
+.footer-bottom {
+    padding-top: 17rem;
+    font-size: var(--xs);
+    color: rgba(var(--grey-dark), 0.7);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer-bottom a {
+    text-decoration: underline;
+}
+.footer-bottom a:hover {
+    color: rgba(var(--grey-dark), 1);
+}
+.footer-bottom-menu {
+    display: flex;
+    align-items: center;
+}
+.footer-bottom-menu a {
+    text-decoration: none;
+}
+.footer-bottom-menu span {
+    display: block; 
+    margin-left: 18rem;
+    margin-right: 18rem;
+}
+
+/*-----------------------*/
+/*--- C O N T A C T   S E C T I O N ---*/
+/*-----------------------*/
+.contact-section {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+.contact-content {
+    display: flex;
+    justify-content: space-between;
+}
+.contact-col {
+    width: 33.3%;
+}
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    color: rgb(var(--grey-dark));
+    margin-top: 20rem;
+}
+.contact-item img {
+    width: 24rem;
+    min-width: 24rem;
+    margin-right: 24rem;
+    display: block;
+    margin-top: 3rem;
+}
+.contact-list {
+    margin-top: 35rem;
+}
+.contact-item.-v1 p {
+    text-decoration: underline;
+}
+.form-wrapper {
+    background: rgb(var(--grey-light-3));
+    padding: 45rem 40rem;
+    border-radius: 0 var(--radius-50) 0 var(--radius-50);
+}
+.contact-img {
+    width: 373rem;
+    max-width: 100%;
+    position: relative;
+    right: -20rem;
 }

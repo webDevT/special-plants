@@ -7,10 +7,11 @@
 
 $(document).ready(function() {
   
-});
+    /*-----------------*/
+    /*--- S E A R C H ---*/
+    /*-----------------*/
 
-
-$('.search-button').on('click', function (e) {
+    $('.search-button').on('click', function (e) {
     e.preventDefault();
     e.stopPropagation();
     
@@ -53,19 +54,18 @@ function performSearch() {
 }
 
 
-$('.search-input').on('keypress', function (e) {
-    if (e.which === 13) { // Enter key
-        e.preventDefault();
-        performSearch();
-    }
-});
+    $('.search-input').on('keypress', function (e) {
+        if (e.which === 13) { // Enter key
+            e.preventDefault();
+            performSearch();
+        }
+    });
 
-/*-----------------*/
-/*--- M O B I L E   M E N U ---*/
-/*-----------------*/
+    /*-----------------*/
+    /*--- M O B I L E   M E N U ---*/
+    /*-----------------*/
 
-
-$('.menu-btn').on('click', function (e) {
+    $('.menu-btn').on('click', function (e) {
     e.preventDefault();
     e.stopPropagation();
     
@@ -85,16 +85,14 @@ $(document).on('click', function (e) {
 });
 
 
-$('.header-menu').on('click', function (e) {
-    e.stopPropagation();
-});
+    $('.header-menu').on('click', function (e) {
+        e.stopPropagation();
+    });
 
+    /*-----------------------*/
+    /*--- F L I C K I T Y ---*/
+    /*-----------------------*/
 
-/*-----------------------*/
-/*--- F L I C K I T Y ---*/
-/*-----------------------*/
-
-$(function () {
     if ($('.carousel').length > 0) {
         $('.carousel').flickity({
             fade: true,
@@ -113,6 +111,7 @@ $(function () {
             initialIndex: 0
         });
     }
+
 });
 
 
