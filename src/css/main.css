@@ -45,31 +45,45 @@
     --radius-50: 50rem;
     --radius-30: 30rem;
 
-    /* Leaf cutout variants - size + radius combined */
+    /* Leaf cutout variants - organized by size groups */
+    /* Hero variant */
     --leaf-hero-width: 580rem;
     --leaf-hero-height: 430rem;
+    --leaf-hero-radius: 280rem;
 
+    /* Square variant */
     --leaf-square-width: 500rem;
     --leaf-square-height: 500rem;
+    --leaf-square-radius: 200rem;
     
+    /* Banner variant */
     --leaf-banner-width: 500rem;
     --leaf-banner-height: 410rem;
+    --leaf-banner-radius: 180rem;
     
+    /* Card variant (default) */
     --leaf-card-width: 480rem;
     --leaf-card-height: 400rem;
+    --leaf-card-radius: 140rem;
     
+    /* Thumb variant */
     --leaf-thumb-width: 250rem;
     --leaf-thumb-height: 215rem;
+    --leaf-thumb-radius: 50rem;
     
+    /* Icon variant */
     --leaf-icon-width: 300rem;
     --leaf-icon-height: 320rem;
+    --leaf-icon-radius: 140rem;
 
     /* After element positioning */
-    --leaf-after-left-right: -17rem; /* For -right direction */
-    --leaf-after-left-left: 17rem;   /* For -left direction */
-    --leaf-after-top: 17rem;
-
-
+    --leaf-after-default-left: -17rem; 
+    --leaf-after-default-top: 17rem;
+    --leaf-after-left-left: 17rem;  
+    --leaf-after-thumb-left: 5rem;
+    --leaf-after-thumb-top: 5rem;
+    --leaf-after-card-left: 10rem;
+    --leaf-after-card-top: 10rem;
 }
 
 
@@ -107,102 +121,140 @@ body {
 
 
 
-
 /*---------------------*/
 /*--- H E L P E R S ---*/
 /*---------------------*/
+
+/* ======================================== */
+/*           L E A F   C U T O U T         */
+/* ======================================== */
+
+/* Base leaf cutout element */
 .leaf-cutout {
     display: block;
     position: relative;
-    --leaf-width: var(--leaf-card-width); /* Default width */
-    --leaf-height: var(--leaf-card-height); /* Default height */
-    --leaf-radius: var(--leaf-card-radius); /* Default radius */
+    --leaf-width: var(--leaf-card-width); 
+    --leaf-height: var(--leaf-card-height); 
+    --leaf-radius: var(--leaf-card-radius); 
     border-radius: 0 var(--leaf-radius) 0 var(--leaf-radius);
     overflow: visible; 
     width: var(--leaf-width);
     height: var(--leaf-height);
 }
 
-.leaf-cutout.-hero {
-    --leaf-width: var(--leaf-hero-width);
-    --leaf-height: var(--leaf-hero-height);
-    --leaf-radius: var(--radius-280);
-}
-.leaf-cutout.-square {
-    --leaf-width: var(--leaf-square-width);
-    --leaf-height: var(--leaf-square-height);
-    --leaf-radius: var(--radius-200);
-}
-.leaf-cutout.-banner {
-    --leaf-width: var(--leaf-banner-width);
-    --leaf-height: var(--leaf-banner-height);
-    --leaf-radius: var(--radius-180);
-}
-.leaf-cutout.-card {
-    --leaf-width: var(--leaf-card-width);
-    --leaf-height: var(--leaf-card-height);
-    --leaf-radius: var(--radius-140);
-}
-.leaf-cutout.-thumb {
-    --leaf-width: var(--leaf-thumb-width);
-    --leaf-height: var(--leaf-thumb-height);
-    --leaf-radius: var(--radius-50);
-}
-.leaf-cutout.-icon {
-    --leaf-width: var(--leaf-icon-width);
-    --leaf-height: var(--leaf-icon-height);
-    --leaf-radius: var(--radius-140);
-}
-
-
-
-
-.leaf-cutout img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Зображення заповнює контейнер */
-    display: block;
-    border-radius: inherit; /* Наслідує радіус від батьківського елемента */
-}
-
-/* Direction modifiers */
-.leaf-cutout.-left {
-    border-radius: var(--leaf-radius) 0 var(--leaf-radius) 0;
-}
-.leaf-cutout.-left:after {
-    left: 17rem;
-}
-
-.leaf-cutout.-right {
-    border-radius: 0 var(--leaf-radius) 0 var(--leaf-radius);
-}
-.leaf-cutout.-right:after {
-    left: -17rem;
-}
-
-.leaf-cutout.-thumb:after {
-    left: 5rem;
-    top: 5rem;
-}
-
-.leaf-cutout.-card:after {
-    left: 10rem;
-    top: 10rem;
-}
-
+/* Pseudo-element for border effect */
 .leaf-cutout:after {
     content: '';
     position: absolute;
     width: 100%;
     height: 100%;
     border: 1px solid rgb(var(--teal));
-    border-radius: inherit; /* Наслідує радіус від батьківського елемента */
-    top: 17rem;
-    left: -17rem; /* Базове значення, перевизначається в напрямках */
+    border-radius: inherit; 
+    top: var(--leaf-after-default-top);
+    left: var(--leaf-after-default-left); 
     z-index: 1;
-    pointer-events: none; /* Не блокує кліки */
+    pointer-events: none;
 }
 
+/* Image styling */
+.leaf-cutout img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+    border-radius: inherit; 
+}
+
+/* ======================================== */
+/*         S I Z E   V A R I A N T S       */
+/* ======================================== */
+
+.leaf-cutout.-hero {
+    --leaf-width: var(--leaf-hero-width);
+    --leaf-height: var(--leaf-hero-height);
+    --leaf-radius: var(--leaf-hero-radius);
+}
+
+.leaf-cutout.-square {
+    --leaf-width: var(--leaf-square-width);
+    --leaf-height: var(--leaf-square-height);
+    --leaf-radius: var(--leaf-square-radius);
+}
+
+.leaf-cutout.-banner {
+    --leaf-width: var(--leaf-banner-width);
+    --leaf-height: var(--leaf-banner-height);
+    --leaf-radius: var(--leaf-banner-radius);
+}
+
+.leaf-cutout.-card {
+    --leaf-width: var(--leaf-card-width);
+    --leaf-height: var(--leaf-card-height);
+    --leaf-radius: var(--leaf-card-radius);
+}
+
+.leaf-cutout.-thumb {
+    --leaf-width: var(--leaf-thumb-width);
+    --leaf-height: var(--leaf-thumb-height);
+    --leaf-radius: var(--leaf-thumb-radius);
+}
+
+.leaf-cutout.-icon {
+    --leaf-width: var(--leaf-icon-width);
+    --leaf-height: var(--leaf-icon-height);
+    --leaf-radius: var(--leaf-icon-radius);
+}
+
+/* ======================================== */
+/*       D I R E C T I O N   M O D S       */
+/* ======================================== */
+
+.leaf-cutout.-left {
+    border-radius: var(--leaf-radius) 0 var(--leaf-radius) 0;
+}
+
+.leaf-cutout.-left:after {
+    left: var(--leaf-after-left-left);
+}
+
+.leaf-cutout.-right {
+    border-radius: 0 var(--leaf-radius) 0 var(--leaf-radius);
+}
+
+.leaf-cutout.-right:after {
+    left: var(--leaf-after-default-left);
+}
+
+/* ======================================== */
+/*      S P E C I A L   P O S I T I O N S  */
+/* ======================================== */
+
+.leaf-cutout.-thumb:after {
+    left: var(--leaf-after-thumb-left);
+    top: var(--leaf-after-thumb-top);
+}
+
+.leaf-cutout.-card:after {
+    left: var(--leaf-after-card-left);
+    top: var(--leaf-after-card-top);
+}
+
+/*-------------------*/
+/*--- FORM ELEMENTS ---*/
+/*-------------------*/
+
+.input {
+    width: 100%;
+    padding: 0rem 13rem;
+    border: 1px solid rgb(var(--grey-light-2));
+    border-radius: 5rem;
+    font-size: var(--xs);
+    font-weight: 400;
+    height: 40rem;
+    font-family: var(--font-family);
+    outline: none;
+    margin: 7px 0;
+}
 
 
 /*-----------------------*/
@@ -535,8 +587,8 @@ button {
 /*--- C O N T A C T   S E C T I O N ---*/
 /*-----------------------*/
 .contact-section {
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 100rem;
+    padding-bottom: 100rem;
 }
 .contact-content {
     display: flex;
@@ -544,6 +596,11 @@ button {
 }
 .contact-col {
     width: 33.3%;
+}
+.contact-col p {
+    width: 250rem;
+    max-width: 100%;
+    text-transform: capitalize;
 }
 .contact-item {
     display: flex;
@@ -568,10 +625,46 @@ button {
     background: rgb(var(--grey-light-3));
     padding: 45rem 40rem;
     border-radius: 0 var(--radius-50) 0 var(--radius-50);
+    position: relative;
+    text-align: center;
+}
+.form-wrapper h2 {
+    color: rgb(var(--green));
+    margin-bottom: 12rem;
+}
+.form-wrapper .button {
+    width: 100%;
+    font-family: var(--font-family);
+    margin-top: 20px;
+}
+.form-wrapper:after {
+    position: absolute;
+    top: -15rem;
+    left: -15rem;
+    border: 1px solid rgb(var(--teal));
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+    content: '';
+    z-index: 1;
+}
+.form-wrapper p {
+    width: 290px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    margin-bottom: 15px;
 }
 .contact-img {
     width: 373rem;
     max-width: 100%;
     position: relative;
     right: -20rem;
+}
+.form {
+    position: relative;
+    z-index: 2;
+}
+.contact-item.-v1:hover {
+    color: rgb(var(--green));
 }
