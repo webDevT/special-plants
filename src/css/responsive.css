@@ -3,56 +3,42 @@
 /*-------------------------------------------*/
 
 /*--- base font size ---*/
-html { font-size: calc((1rem / 16) * 1); }
-
-
-
-
+html {
+    font-size: calc((1rem / 16) * 1);
+}
 
 /*--- phone (+touch) ---*/
 
-
 /*--- tablet (+touch) ---*/
 @media (min-width: 578px) and (max-width: 1279px) {
-    html { font-size: calc((1rem / 16) * 0.8); }
+    html {
+        font-size: calc((1rem / 16) * 0.8);
+    }
 
-    
 }
 
 /*--- sd ---*/
 @media (min-width: 1280px) and (max-width: 1439px) {
-    html { font-size: calc((1rem / 16) * 0.9); }
-
-    
+    html {
+        font-size: calc((1rem / 16) * 0.9);
+    }
 }
 
 /*--- hd ---*/
 @media (min-width: 1440px) and (max-width: 1919px) {
-    html { font-size: calc((1rem / 16) * 1); }
-
-   
+    html {
+        font-size: calc((1rem / 16) * 1);
+    }
+ 
 }
-
 /*--- uhd ---*/
 @media (min-width: 1920px) {
-    html { font-size: calc((1rem / 16) * 1.1); }
-
-   
-
+    html {
+        font-size: calc((1rem / 16) * 1.1);
+    }
 }
-
-
-/*-----------------------------------------*/
-/*--- R E S P O N S I V E   D E S I G N ---*/
-/*-----------------------------------------*/
 
 /*--- phone ---*/
-@media (max-width: 577px) {
-}
-
-/*--- tablet ---*/
-@media (min-width: 578px) {
-}
 
 /*--- mobile logo ---*/
 @media (max-width: 1100px) {
@@ -90,7 +76,7 @@ html { font-size: calc((1rem / 16) * 1); }
         padding-top: 216rem;
     }
     .header-top .container {
-        padding-bottom: 76rem;
+        padding-bottom: 67rem;
     }
     .header .container {
         position: relative;
@@ -119,7 +105,7 @@ html { font-size: calc((1rem / 16) * 1); }
     }
     .menu-btn span {
         display: block;
-        width: 30rem;
+        width: 20rem;
         height: 2rem;
         background-color: rgb(var(--green));
         margin-bottom: 4rem;
@@ -129,7 +115,7 @@ html { font-size: calc((1rem / 16) * 1); }
         margin-bottom: 0;
     }
     .menu-btn span:nth-child(2) {
-        width: 20rem;
+        width: 15rem;
         margin-left: auto;
         margin-right: 0;
     }
@@ -167,6 +153,26 @@ html { font-size: calc((1rem / 16) * 1); }
         width: 100%;
         margin-left: 0;
     }
+
+    /*-------------------*/
+    /*--- GRID SISTEM ---*/
+    /*-------------------*/
+    .col-lg-6  {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .col-lg-3  {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    /* ======================================== */
+    /*           L E A F   C U T O U T         */
+    /* ======================================== */
+
+
+    /*-------------------*/
+    /*--- FOOTER ---*/
+    /*-------------------*/
     .contact-col {
         width: 50%;
     }
@@ -179,9 +185,55 @@ html { font-size: calc((1rem / 16) * 1); }
     .contact-content {
         position: relative;
     }
+
+    /*-------------------*/
+    /*--- HOME PAGE ---*/
+    /*-------------------*/
+    .bio-section p {
+        max-width: 95%;
+    }
+    .card-image-wrapper {
+        height: 45vw;
+    }
+    .card {
+        margin-bottom: 40rem;
+    }
     
 }
 @media (max-width: 768px) {
+    /*-------------------*/
+    /*--- GRID SISTEM ---*/
+    /*-------------------*/
+    .col-lg-8 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .col-lg-7 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .col-lg-5  {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .col-lg-4  {
+        flex: 0 0 100;
+        max-width: 100%;
+    }
+    .col-lg-3  {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    /* ======================================== */
+    /*           L E A F   C U T O U T         */
+    /* ======================================== */
+    .leaf-cutout.-hero {
+        --leaf-width: 100%;
+      
+    }
+    /*-------------------*/
+    /*--- FOOTER ---*/
+    /*-------------------*/
     .contact-content {
         flex-direction: column;
     }
@@ -193,7 +245,7 @@ html { font-size: calc((1rem / 16) * 1); }
     }
     .form-wrapper {
         margin-top: 65rem;
-        left: 15rem;
+        left: 7.5rem;
     }
     .contact-col:nth-child(3) {
         width: 100rem;
@@ -204,42 +256,97 @@ html { font-size: calc((1rem / 16) * 1); }
         left: auto;
         right: 0;
     }
-    /* .leaf-cutout.-hero {
-        --leaf-width: 100%;
-        --leaf-height: 300rem;
-    }
-    .leaf-cutout.-banner {
-        --leaf-width: 100%;
-        --leaf-height: 250rem;
-    }
-    .leaf-cutout.-card {
-        --leaf-width: 100%;
-        --leaf-height: 200rem;
-    }
-    .leaf-cutout.-square {
-        --leaf-width: 100%;
-        --leaf-height: 250rem;
-    } */
+       
+    /*-------------------*/
+    /*-- HOME PAGE ---*/
+    /*-------------------*/
+   .nursery-section {
+        padding-top: 60rem;
+        padding-bottom: 60rem;
+   }
+   .nursery-section .container {
+        position: relative;
+        padding-top: 70rem;
+   }
+   .nursery-section h2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+   }
+   .nursery-section .leaf-cutout {
+    margin-bottom: 50rem;
+   }
+   .bio-section {
+    padding-top: 60rem;
+   }
+   .bio-section .row {
+    flex-direction: column-reverse;
+    
+   }
+   .bio-section .leaf-cutout {
+    margin-left: auto;
+    margin-right: auto;
+   }
+   .bio-section .container {
+    position: relative;
+    padding-top: 75rem;
+   }
+   .bio-section h2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    z-index: 1;
+   }
+   .bio-section .leaf-cutout {
+    margin-bottom: 30rem;
+   }
+   
 }
 @media (max-width: 577px) {
-    /*-------------------*/
-    /*--- H E A D E R ---*/
-    /*-------------------*/
+    /*-----------------------*/
+    /*--- D E F A U L T S ---*/
+    /*-----------------------*/
+    h2 {
+        font-size: 24rem;
+    }
     html {
         font-size: calc((1rem / 16) * 1);
     }
+    .button {
+        width: 100%;
+    }
+
+    /* ======================================== */
+    /*           L E A F   C U T O U T         */
+    /* ======================================== */
+   
+    .leaf-cutout:after {
+        top: 10rem;
+        left: -10rem;
+    }
+
+    /* ======================================== */
+    /*           H E R O   S L I D E R         */
+    /* ======================================== */
+    .hero-slider {
+        aspect-ratio: 1; 
+    }
+
+    /*-------------------*/
+    /*--- H E A D E R ---*/
+    /*-------------------*/
+       
     .logo img {
-        width: 185rem;
+        width: 50vw;
     }
     .header-menu.active {
         padding-top: 170rem;
     }
-    .hero-slider {
-        height: 133rem;
-    }
-    .hero-slider .flickity-page-dots {
-        bottom: 11rem;
-    }
+     /*-------------------*/
+    /*--- FOOTER ---*/
+    /*-------------------*/
     .footer-content {
         flex-direction: column;
     }
@@ -248,7 +355,9 @@ html { font-size: calc((1rem / 16) * 1); }
         padding-top: 33rem;
     }
     .footer-logo img {
-        width: 100%;
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
     }
     .footer-social {
         margin-top: 50rem;
@@ -262,6 +371,26 @@ html { font-size: calc((1rem / 16) * 1); }
     .footer {
         padding-bottom: 33rem;
     }
+     /*-------------------*/
+    /*--- HOME PAGER ---*/
+    /*-------------------*/
+    .hero-slider {
+        aspect-ratio: 1; 
+    }
+    .hero-slider .flickity-page-dots {
+        bottom: 11rem;
+    }
+    .card-image-wrapper {
+        height: 85vw;
+    }
+    .items-section {
+        padding-bottom: 50rem;
+    }
+    
+    
+
+
+    
   
  
   

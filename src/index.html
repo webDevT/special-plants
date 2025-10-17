@@ -1,89 +1,187 @@
-<!DOCTYPE html>
-<html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Special Plants</title>
-    <meta name="description" content="Спеціалізований магазин рідкісних та екзотичних рослин. Великий вибір кімнатних та садових рослин.">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/flickity.css">
-    <link rel="stylesheet" href="css/flickity-fade.css">
-    <link rel="stylesheet" href="css/responsive.css">
-</head>
-<body>
-    <!-- Header -->
+
+  
     @@include('partials/header.html')
 
 
-    <!-- start hero slider -->
     <section class="hero-slider">
         <div class="carousel">
-            <div class="carousel-cell">
-                <img src="images/header-slides/1.png" alt="Special Plants Slide 1">
+            <div class="carousel-cell" data-bg="1" style="background-image: url('images/header-slides/1.png');">
+               
             </div>
-            <div class="carousel-cell">
-                <img src="images/header-slides/2.png" alt="Special Plants Slide 2">
+            <div class="carousel-cell" data-bg="2" style="background-image: url('images/header-slides/2.png');">
+                
             </div>
-            <div class="carousel-cell">
-                <img src="images/header-slides/3.png" alt="Special Plants Slide 2">
-            </div>
+            <div class="carousel-cell" data-bg="3" style="background-image: url('images/header-slides/3.png');">
+                          </div>
         </div>
     </section>
-    <!-- end hero slider -->
-
-    <!-- <div class="container">
-        <div class="leaf-cutout -hero">
-            <img src="images/image.png" alt="leaf">
-        </div>
-        
-        <div class="leaf-cutout -icon -left">
-            <img src="images/image.png" alt="leaf">
-        </div>
-        
-        <div class="leaf-cutout -square -left">
-            <img src="images/image.png" alt="leaf">
-        </div>
-        
-        <div class="leaf-cutout -square -right">
-            <img src="images/image.png" alt="leaf">
-        </div>
-        
-        <div class="leaf-cutout -banner -left">
-            <img src="images/image.png" alt="leaf">
-        </div>
-        
-        <div class="leaf-cutout -thumb -left">
-            <img src="images/image.png" alt="leaf">
-        </div>
-        
-        <div class="leaf-cutout -card -left">
-            <img src="images/image.png" alt="leaf">
-        </div>
-        
-        </div> -->
 
 
-    <!-- Main Content -->
-    <!-- <div class="container">
-        <h1>Special Plants</h1>
-        <h2>Special Plants h2</h2>
-        <h3>Special Plants h3</h3>
-        <p>lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
 
-        <a href="#" class="button -v1">CONTACT US</a>
-        <a href="#" class="button -v2">CONTACT US</a>
-    </div> -->
+    <section class="nursery-section">
+        <div class="container">
+           <div class="row">
+            <div class="col-lg-7">
+                <div class="leaf-cutout -hero">
+                    <img src="images/image.webp" alt="leaf">
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="nursery-section-content">
+                   <h2>The Nursery</h2>
+
+                <p class="text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque bibendum ipsum vitae consectetur lacinia. Phasellus vehicula magna risus, sed pretium ex lacinia eu. Cras non tempor massa.
+                </p>
+
+                <p class="text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque bibendum ipsum vitae consectetur lacinia. Phasellus vehicula magna risus, sed pretium.
+                </p>
+
+                <a href="#" class="learn-more">read more<img src="images/icons/arrow.svg" alt="arrow"></a>
+ 
+                   </div>
+                
+               
+            </div>
+           </div>
+        </div>
+    </section>
 
 
-    <!-- Footer -->
+
+     <section class="items-section">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-3">
+                    <a href="" class="card">
+
+                        <div class="card-image-wrapper">
+                            <img src="images/item1.webp" alt="item" class="card-image">
+                            <div class="card-image-cover">
+                                <span class="material-symbols-outlined card-image-icon">psychiatry</span>
+                                <h3>Seed shop</h3>
+                            </div>
+                        </div>
+
+                        <h4>
+                            Buy Online
+                        </h4>
+                        <p>
+                            Over X,XXX seeds available to purchase online and we ship worldwide
+                        </p>
+                        <div class="button -v1">read more</div>
+                    </a>
+
+                </div>
+
+                <div class="col-lg-3">
+                    <a href="" class="card">
+
+                        <div class="card-image-wrapper">
+                            <img src="images/item2.webp" alt="item" class="card-image">
+                            <div class="card-image-cover">
+                                <span class="material-symbols-outlined card-image-icon">nature</span>
+                                <h3>Garden</h3>
+                            </div>
+                        </div>
+
+                        <h4>
+                            Explore the Garden
+                        </h4>
+                        <p>
+                            Open April to October <br>
+                            Tuesdays <br>
+                            10.30am – 5pm
+                        </p>
+                        <div class="button -v1">FIND OUT MORE</div>
+                    </a>
+
+                </div>
+
+                <div class="col-lg-3">
+                    <a href="" class="card">
+
+                        <div class="card-image-wrapper">
+                            <img src="images/item3.webp" alt="item" class="card-image">
+                            <div class="card-image-cover">
+                                <span class="material-symbols-outlined card-image-icon">local_florist</span>
+                                <h3>Nursery</h3>
+                            </div>
+                        </div>
+
+                        <h4>
+                            Visit the Nursery
+                        </h4>
+                        <p>
+                            Open March to October <br>
+                            Tuesday – Saturday <br>
+10am – 5pm
+                        </p>
+                        <div class="button -v1">FIND OUT MORE</div>
+                    </a>
+
+                </div>
+
+                <div class="col-lg-3">
+                    <a href="" class="card">
+
+                        <div class="card-image-wrapper">
+                            <img src="images/item4.webp" alt="item" class="card-image">
+                            <div class="card-image-cover">
+                                <span class="material-symbols-outlined card-image-icon">school</span>
+                                <h3>Courses</h3>
+                            </div>
+                        </div>
+
+                        <h4>
+                            Book Online
+                        </h4>
+                        <p>
+                            We offer a wide range of practical three and six hour gardening courses
+                        </p>
+                        <div class="button -v1">BROWSE COURSES</div>
+                    </a>
+
+                </div>
+
+            </div>
+            </div>
+            </section>
+
+
+
+<section class="bio-section">
+    <div class="container">
+        <div class="row -v2">
+            <div class="col-lg-8">
+                <div class="bio-section-content">
+                    <h2>Meet Derry</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque bibendum ipsum vitae consectetur lacinia. Phasellus vehicula magna risus, sed pretium ex lacinia eu. Cras non tempor massa.
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque bibendum ipsum vitae consectetur lacinia. Phasellus vehicula magna risus, sed pretium.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="leaf-cutout -icon -left -white-border">
+                    <img src="images/derry-photo.webp" alt="leaf">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
     @@include('partials/footer.html')
 
     <!-- JavaScript -->
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/flickity.pkgd.js"></script>
     <script src="js/flickity-fade.js"></script>
-    <script src="js/main.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

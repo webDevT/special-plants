@@ -1,201 +1,249 @@
-# Вимоги до проекту Special Plants
+# Special Plants Project Requirements
 
-## Загальна інформація
-- **Назва проекту:** Special Plants
-- **Тип:** Веб-сайт магазину рідкісних рослин
-- **Мова:** Українська
-- **Технології:** HTML, CSS, JavaScript, Gulp
+## Project Overview
+- **Project Name:** Special Plants
+- **Type:** Rare Plants E-commerce Website
+- **Language:** Ukrainian
+- **Technologies:** HTML, CSS, JavaScript, Gulp
+- **Status:** In Development
 
-## Структура проекту
+## Project Structure
 
-### Папки та файли
+### Directory Structure
 ```
 specialplants/
-├── src/                    # Вихідні файли для розробки
-│   ├── css/               # CSS файли
-│   ├── js/                # JavaScript файли
-│   ├── images/            # Зображення
-│   ├── fonts/             # Шрифти
-│   ├── scss/              # SCSS файли (опціонально)
-│   ├── partials/          # HTML частини (header, footer)
-│   │   ├── header.html    # Шапка сайту
-│   │   └── footer.html    # Підвал сайту
-│   ├── index.html         # Головна HTML сторінка
-│   ├── catalog.html       # Сторінка каталогу
-│   └── about.html         # Сторінка "Про нас"
-├── docs/                  # Зібрані файли (створюється автоматично)
-├── gulpfile.js            # Конфігурація Gulp
-├── package.json           # Залежності проекту
-└── README.md              # Документація
+├── src/                    # Source files for development
+│   ├── css/               # CSS files
+│   │   ├── main.css       # Main styles (826 lines)
+│   │   ├── responsive.css # Responsive styles (387 lines)
+│   │   ├── flickity.css   # Carousel styles
+│   │   └── flickity-fade.css # Fade effects
+│   ├── js/                # JavaScript files
+│   │   ├── main.js        # Main functionality
+│   │   ├── jquery-3.7.1.min.js # jQuery library
+│   │   ├── flickity.pkgd.js # Carousel library
+│   │   └── flickity-fade.js # Fade effects
+│   ├── images/            # Images and media
+│   │   ├── icons/         # SVG icons (15 files)
+│   │   ├── header-slides/ # Hero slider images
+│   │   ├── logo.svg       # Site logo
+│   │   ├── girl.svg       # Decorative graphics
+│   │   └── *.webp, *.png  # Product and content images
+│   ├── fonts/             # Font files (empty)
+│   ├── partials/          # HTML partials
+│   │   ├── header.html    # Site header (55 lines)
+│   │   └── footer.html    # Site footer (119 lines)
+│   └── index.html         # Main page (250 lines)
+├── docs/                  # Built files (auto-generated)
+│   ├── css/              # Compiled CSS with source maps
+│   ├── js/               # Processed JavaScript
+│   ├── images/           # Optimized images
+│   └── index.html        # Built HTML
+├── gulpfile.js           # Gulp configuration
+├── package.json          # Project dependencies
+└── README.md            # Documentation
 ```
 
-## Налаштування збірки
+## Build System
 
-### Команди
-- `npm run build` - продакшн збірка (без source maps, без мініфікації)
-- `npm run build:dev` - збірка для розробки (з source maps, з мініфікацією)
-- `npm run dev` - режим розробки з автоматичним оновленням
-- `npm run clean` - очищення папки docs
+### Available Commands
+- `npm run build` - Production build (clean, no source maps)
+- `npm run build:dev` - Development build (with source maps, minified)
+- `npm run dev` - Development mode with auto-reload
+- `npm run clean` - Clean docs folder
 
-### Особливості збірки
-- **Продакшн:** чиста збірка без .map файлів
-- **Розробка:** з source maps та мініфікацією
-- **jQuery:** завжди мініфікований
-- **Інші JS:** читабельні в продакшні, мініфіковані в розробці
-- **CSS:** читабельні в продакшні, мініфіковані в розробці
+### Build Features
+- **Production:** Clean build without .map files
+- **Development:** Source maps and minification
+- **jQuery:** Always minified
+- **Other JS:** Readable in production, minified in development
+- **CSS:** Readable in production, minified in development
+- **Images:** Automatic optimization with imagemin
+- **HTML:** File includes processing with gulp-file-include
 
-## HTML Includes
+## HTML Includes System
 
-### Використання
+### Usage
 ```html
 @@include('partials/header.html')
-<!-- Ваш контент -->
+<!-- Your content -->
 @@include('partials/footer.html')
 ```
 
-### Файли partials
-- `src/partials/header.html` - шапка сайту
-- `src/partials/footer.html` - підвал сайту
+### Partial Files
+- `src/partials/header.html` - Site header with navigation
+- `src/partials/footer.html` - Site footer with contact info
 
-## Сторінки сайту
+## Website Pages
 
-### Основні сторінки
-1. **Головна** (`index.html`) - лендінг з hero секцією
-2. **Каталог** (`catalog.html`) - каталог рослин з фільтрами
-3. **Про нас** (`about.html`) - інформація про компанію
+### Current Pages
+1. **Homepage** (`index.html`) - Landing page with hero slider, nursery section, bio section, items section
 
-### Додаткові сторінки (будуть створені)
-- Контакти
-- Доставка та оплата
-- Детальна сторінка товару
-- Кошик
-- Особистий кабінет
+### Planned Pages
+- Catalog (`catalog.html`) - Plant catalog with filters
+- About (`about.html`) - Company information
+- Contact - Contact information and form
+- Product Details - Individual product pages
+- Shopping Cart - E-commerce functionality
+- User Account - Personal dashboard
 
-## Стилізація
+## Styling System
 
-### CSS файли
-- `main.css` - основні стилі
-- `flickity.css` - стилі для каруселі
-- `flickity-fade.css` - ефекти fade для каруселі
-- `responsive.css` - адаптивні стилі та брейкпоінти
+### CSS Architecture
+- **REM System:** 1rem = 1px at 1440px resolution
+- **Class Naming:** lowercase with hyphens (kebab-case)
+- **Modifiers:** Start with hyphen (e.g., `button -v1 -small`)
+- **Spacing:** 15rem intervals (15, 30, 45, 60, 90, 120, 240)
+- **CSS Structure:** Organized blocks with comments
+- **Leaf Cutouts:** CSS implementation instead of images
 
-### Підхід до стилізації
-- **REM система:** 1rem = 1px на роздільній здатності 1440px
-- **Назви класів:** lowercase з дефісами (kebab-case)
-- **Підкласи:** починаються з дефісу (наприклад: `button -v2 -small`)
-- **Інтервали розмірів:** 15rem інтервали (15, 30, 45, 60, 90, 120, 240)
-- **Структура CSS:** блоки з коментарями для організації
-- **Leaf cutouts:** CSS-реалізація замість зображень
+### CSS Files
+- `main.css` (826 lines) - Core styles, grid system, components
+- `responsive.css` (387 lines) - Breakpoints and responsive design
+- `flickity.css` - Carousel library styles
+- `flickity-fade.css` - Fade transition effects
 
-### CSS структура
+### CSS Organization
 ```css
 /*---------------------*/
 /*--- H E A D E R ---*/
 /*---------------------*/
 ```
 
-### Leaf cutout класи
-- `.leaf-cutout` - базовий клас
-- `-radius-30`, `-radius-60` - варіанти радіусів
-- `-left`, `-right` - напрямки
+### Grid System
+- **Container:** Max-width 1200rem, centered
+- **Row:** Flexbox with wrap
+- **Columns:** Bootstrap-like system
+  - `col-lg-8` - 66.67% width
+  - `col-lg-7` - 58.33% width
+  - `col-lg-6` - 50% width
+  - `col-lg-5` - 41.67% width
+  - `col-lg-4` - 33.33% width
+  - `col-lg-3` - 25% width
 
-## JavaScript функціональність
+### Leaf Cutout System
+- **Base Class:** `.leaf-cutout`
+- **Size Variants:** `-hero`, `-square`, `-banner`, `-card`, `-thumb`, `-icon`
+- **Direction Modifiers:** `-left`, `-right`
+- **Border Variants:** `-white-border` for dark backgrounds
+- **CSS Variables:** Organized by variant groups
 
-### Основні функції
-- Карусель зображень (Flickity)
-- Валідація форм
-- Мобільне меню
-- Пошук по сайту
-- Кошик покупок
+## JavaScript Functionality
 
-### Файли JS
-- `jquery-3.7.1.min.js` - jQuery (мініфікований)
-- `flickity.pkgd.js` - бібліотека каруселі
-- `flickity-fade.js` - ефекти fade
-- `main.js` - основний функціонал
+### Current Features
+- **Hero Slider:** Flickity carousel with fade effects
+- **Mobile Menu:** Responsive navigation
+- **Search Functionality:** Site search implementation
+- **Form Validation:** Contact form handling
+- **Interactive Elements:** Hover effects, animations
 
-## Зображення та медіа
+### JavaScript Files
+- `main.js` - Core functionality and interactions
+- `jquery-3.7.1.min.js` - jQuery library (minified)
+- `flickity.pkgd.js` - Carousel library
+- `flickity-fade.js` - Fade transition effects
 
-### Формати
-- **SVG** для векторної графіки (іконки, логотипи)
-- **WebP** для фотографій
-- **Назви файлів:** lowercase з дефісами (kebab-case)
+## Images and Media
 
-### Оптимізація
-- Автоматична оптимізація через Gulp
-- Responsive зображення
-- Lazy loading для великих зображень
+### Current Assets
+- **SVG Icons:** 15 icons in `/images/icons/`
+- **Hero Images:** 3 slider images in `/images/header-slides/`
+- **Product Images:** WebP and PNG formats
+- **Decorative Graphics:** SVG illustrations
 
-## Адаптивність
+### Optimization
+- **Automatic Optimization:** Gulp imagemin
+- **Responsive Images:** Multiple formats (WebP, PNG)
+- **Lazy Loading:** Planned for large images
+- **File Naming:** lowercase with hyphens (kebab-case)
 
-### Брейкпоінти
-- **Базова роздільність:** 1440px (1rem = 1px)
-- **Повна ширина:** до 1920rem, потім центрування
-- **Масштабування REM:** для різних роздільностей
-- **Брейкпоінти:** визначені в responsive.css
+## Responsive Design
 
-### Підхід
-- **REM система:** масштабування через зміну розміру rem
-- **Брейкпоінти:** допоміжні класи та брейкпоінти в responsive.css
-- **Специфічні правила:** внизу responsive.css
-- **Інтервали:** 15rem інтервали для розмірів
+### Breakpoint System
+- **Base Resolution:** 1440px (1rem = 1px)
+- **Full Width:** Up to 1920rem, then centering
+- **REM Scaling:** For different resolutions
+- **Breakpoints:** Defined in responsive.css
 
-## SEO та доступність
+### Approach
+- **REM System:** Scaling through rem size changes
+- **Breakpoints:** Helper classes and breakpoints in responsive.css
+- **Specific Rules:** At bottom of responsive.css
+- **Intervals:** 15rem intervals for sizes
 
-### SEO
-- Семантична HTML розмітка
-- Meta теги для кожної сторінки
-- Структуровані дані
-- Оптимізація швидкості завантаження
+## Current Development Status
 
-### Доступність
-- ARIA атрибути
-- Альтернативний текст для зображень
-- Клавіатурна навігація
-- Контрастність кольорів
+### Completed Features ✅
+1. **Gulp Build System** - Complete with all tasks
+2. **HTML Structure** - Header, footer, main page
+3. **CSS Architecture** - REM system, grid, components
+4. **Leaf Cutout System** - CSS-based decorative elements
+5. **Responsive Design** - Mobile-first approach
+6. **Hero Slider** - Flickity implementation
+7. **Grid System** - Bootstrap-like columns
+8. **Form Elements** - Input styling and validation
+9. **Button System** - Multiple variants (-v1, -v2, -v3)
+10. **Image Optimization** - WebP and PNG support
 
-## Процес розробки
+### In Progress 🔄
+1. **JavaScript Functionality** - Interactive features
+2. **Content Sections** - Bio section, items section
+3. **Hover Effects** - Card interactions
+4. **Form Validation** - Contact form handling
 
-### Етапи
-1. ✅ Налаштування Gulp збірки
-2. ✅ Створення структури HTML includes
-3. ✅ Розробка дизайну та стилізації (REM система, leaf cutouts)
-4. 🔄 Додавання JavaScript функціональності
-5. ⏳ Тестування та оптимізація
-6. ⏳ Запуск в продакшн
+### Planned Features ⏳
+1. **Additional Pages** - Catalog, about, contact
+2. **E-commerce Features** - Shopping cart, checkout
+3. **User Authentication** - Login, registration
+4. **SEO Optimization** - Meta tags, structured data
+5. **Performance Optimization** - Lazy loading, caching
 
-### Робочий процес
-1. Отримання вимог від клієнта
-2. Планування та створення інструкцій
-3. Розробка згідно з вимогами
-4. Тестування на різних пристроях
-5. Оптимізація та запуск
+## Quality Control
 
-## Контроль якості
+### Checklist
+- [x] All pages open correctly
+- [x] Responsive design on all devices
+- [x] Build system working properly
+- [x] CSS organization and structure
+- [x] JavaScript functionality
+- [ ] Page load speed < 3 seconds
+- [ ] HTML and CSS validation
+- [ ] Cross-browser compatibility
+- [ ] SEO optimization
+- [ ] Accessibility for users with disabilities
 
-### Чек-лист
-- [ ] Всі сторінки відкриваються коректно
-- [ ] Адаптивність на всіх пристроях
-- [ ] Швидкість завантаження < 3 сек
-- [ ] Валідація HTML та CSS
-- [ ] Кроссбраузерна сумісність
-- [ ] SEO оптимізація
-- [ ] Доступність для користувачів з обмеженими можливостями
+## Technical Specifications
 
-## Контакти та підтримка
+### Browser Support
+- **Modern Browsers:** Chrome, Firefox, Safari, Edge
+- **Mobile Browsers:** iOS Safari, Chrome Mobile
+- **Responsive:** Mobile-first design approach
 
-### Розробник
-- Відповідальний за технічну реалізацію
-- Слідкування за виконанням вимог
-- Тестування та оптимізація
+### Performance Targets
+- **Load Time:** < 3 seconds
+- **Lighthouse Score:** > 90
+- **Image Optimization:** WebP format priority
+- **CSS/JS:** Minified in production
 
-### Клієнт
-- Надання вимог та контенту
-- Затвердження дизайну
-- Тестування функціональності
+## Development Workflow
+
+### Process
+1. **Requirements Analysis** - Client needs and specifications
+2. **Planning** - Technical architecture and timeline
+3. **Development** - Feature implementation
+4. **Testing** - Cross-device and browser testing
+5. **Optimization** - Performance and SEO
+6. **Deployment** - Production launch
+
+### Code Standards
+- **HTML:** Semantic markup, accessibility
+- **CSS:** BEM-like methodology, organized structure
+- **JavaScript:** ES6+, modular approach
+- **Images:** Optimized formats, proper sizing
 
 ---
 
-**Дата створення:** 14.01.2025  
-**Останнє оновлення:** 14.01.2025  
-**Статус:** В розробці
+**Created:** January 14, 2025  
+**Last Updated:** January 14, 2025  
+**Status:** In Development  
+**Version:** 1.0.0

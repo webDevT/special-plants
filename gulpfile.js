@@ -17,7 +17,7 @@ const isDev = process.env.NODE_ENV !== 'production';
 // Шляхи до файлів
 const paths = {
     src: {
-        html: 'src/**/*.html',
+        html: ['src/*.html', '!src/partials/**/*.html'],
         css: 'src/css/**/*.css',
         scss: 'src/scss/**/*.scss',
         js: 'src/js/**/*.js',
@@ -38,14 +38,15 @@ function cleanDist() {
     return del(['docs/**/*']);
 }
 
-// Копіювання HTML файлів з обробкою includes
+// Копіювання HTML файлів з обробкою includes (виключає partials)
 function copyHTML() {
     return gulp.src(paths.src.html)
         .pipe(fileinclude({
             prefix: '@@',
             basepath: '@file'
         }))
-        .pipe(gulp.dest(paths.dist.base));
+        .pipe(gulp.dest(paths.dist.base))
+        .pipe(browserSync.stream());
 }
 
 // Обробка CSS файлів
@@ -121,10 +122,11 @@ function processJS() {
         mainJsStream = mainJsStream.pipe(sourcemaps.init());
     }
     
-    const jsFileName = isDev ? 'main.min.js' : 'main.js';
+    const jsFileName = 'main.js';
     mainJsStream = mainJsStream
         .pipe(concat(jsFileName));
     
+    // Minify only in development mode
     if (isDev) {
         mainJsStream = mainJsStream.pipe(uglify());
     }
@@ -160,13 +162,17 @@ function serve() {
             baseDir: paths.dist.base
         },
         port: 3000,
-        open: true
+        open: true,
+        notify: false,
+        reloadOnRestart: true,
+        injectChanges: true
     });
 }
 
 // Спостереження за змінами файлів
 function watchFiles() {
-    gulp.watch(paths.src.html, copyHTML).on('change', browserSync.reload);
+    gulp.watch(paths.src.html, copyHTML);
+    gulp.watch('src/partials/**/*.html', copyHTML);
     gulp.watch(paths.src.css, processCSS);
     gulp.watch(paths.src.scss, processSCSS);
     gulp.watch(paths.src.js, processJS);
