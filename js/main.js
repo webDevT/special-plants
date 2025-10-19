@@ -40,17 +40,15 @@ $(function () {
     });
 });
 
-/*--- mark input as "touched" after blur ---*/
 $('.form input').on('blur', function () {
     $(this).addClass('touched');
 });
 
-/*--- remove error highlight once input has focus ---*/
 $('.form input').on('focus', function () {
     $(this).removeClass('error');
 });
 
-/*--- On form submit, mark all fields as touched and trigger validation ---*/
+
 function isFormValid(frm) {
     let valid = true;
 
